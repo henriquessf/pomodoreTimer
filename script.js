@@ -11,10 +11,25 @@ let minutes
 function countdown() {
   setTimeout(() => {
     let seconds = Number(secondsDisplay.textContent)
-    if (seconds <= 0) {
-      seconds = 60
+    let minutes = Number(minutesDisplay.textContent)
+
+    if (minutes <= 0) {
+      buttonPlay.classList.remove('hide')
+      buttonStop.classList.add('hide')
+      buttonSet.classList.remove('hide')
+      buttonPause.classList.add('hide')
+      secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
+
+      return
     }
-    secondsDisplay.textContent = seconds - 1
+
+    if (seconds <= 0) {
+      seconds = 2
+      minutesDisplay.textContent = String(minutes - 1).padStart(2, '0') //sempre que os segundos zerarem, diminuirá um no display de minutos
+    }
+
+    secondsDisplay.textContent = String(seconds - 1).padStart(2, '0')
+
     countdown()
   }, 1000)
 }
@@ -51,5 +66,5 @@ buttonSoundOff.addEventListener('click', () => {
 
 buttonSet.addEventListener('click', () => {
   minutes = prompt('Digite quantos minutos irá estudar: ')
-  minutesDisplay.textContent = `${minutes}`
+  minutesDisplay.textContent = String(minutes).padStart(2, '0')
 })
