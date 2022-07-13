@@ -1,3 +1,5 @@
+import Sounds from './sounds.js'
+
 export default function Timer({
   minutesDisplay,
   secondsDisplay,

@@ -5,7 +5,7 @@ import {
   buttonSoundOff,
   buttonSoundOn,
   buttonStop
-} from './elements'
+} from './elements.js'
 
 export default function Events({ controls, timer, sounds }) {
   buttonPlay.addEventListener('click', () => {
